@@ -1,9 +1,22 @@
 import { NativeModules } from 'react-native';
-
-type AwesomeWeb3Type = {
-  multiply(a: number, b: number): Promise<number>;
-};
+import base64 from 'react-native-base64';
 
 const { AwesomeWeb3 } = NativeModules;
 
-export default AwesomeWeb3 as AwesomeWeb3Type;
+class NativeWeb3 {
+  async generatorSeed(
+    mnemonic: string,
+    password?: string | null
+  ): Promise<Uint8Array> {
+    const psd = password ? password : '';
+    const base64Str = await AwesomeWeb3.generateSeed(mnemonic, psd);
+    const seed = new Uint8Array(
+      base64
+        .decode(base64Str)
+        .split('')
+        .map((c) => c.charCodeAt(0))
+    );
+    return seed;
+  }
+}
+export default NativeWeb3;

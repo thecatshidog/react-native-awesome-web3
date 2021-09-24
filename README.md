@@ -15,7 +15,7 @@ import AwesomeWeb3 from "react-native-awesome-web3";
 
 // ...
 
-const result = await AwesomeWeb3.multiply(3, 7);
+const result = await new AwesomeWeb3().generatorSeed(mnemonic, password?);
 ```
 
 ## Contributing
