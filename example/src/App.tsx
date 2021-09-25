@@ -18,7 +18,8 @@ export default function App() {
         ''
       )
       .then((seed) => {
-        console.log(utils.HDNode.fromSeed(seed));
+        console.log(seed);
+        // console.log(utils.HDNode.fromSeed(seed));
         console.log(
           utils.HDNode.fromMnemonic(
             'parrot park tornado ice cinnamon simple join federal crack ticket situate ill'

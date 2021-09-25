@@ -137,7 +137,6 @@
 				47F7ED3B7971BE374F7B8635 /* Pods-AwesomeWeb3Example.debug.xcconfig */,
 				E00ACF0FDA8BF921659E2F9A /* Pods-AwesomeWeb3Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -393,7 +392,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AwesomeWeb3Example/Pods-AwesomeWeb3Example-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -564,6 +563,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AwesomeWeb3Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
