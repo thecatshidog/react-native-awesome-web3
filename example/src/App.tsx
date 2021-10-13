@@ -4,14 +4,17 @@ import '@ethersproject/shims';
 
 import { utils } from 'ethers';
 
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button, NativeModules } from 'react-native';
 import AwesomeWeb3 from 'react-native-awesome-web3';
+
+// import { Button } from 'react-native';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
     const obj = new AwesomeWeb3();
+
     obj
       .generatorSeed(
         'parrot park tornado ice cinnamon simple join federal crack ticket situate ill',
@@ -32,6 +35,20 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Result: {result}</Text>
+
+      <Button 
+      title="Button"
+      onPress={()=>{
+        console.log("AwesomeWeb3", NativeModules.AwesomeWeb3);
+
+        let AwesomeWeb3 = NativeModules.AwesomeWeb3;
+        AwesomeWeb3.generateSeed('parrot park tornado ice cinnamon simple join federal crack ticket situate ill', '')
+        .then((successResult) => { console.log("result-----"+successResult) })
+        .catch((error) => { console.log("error----"+error.code+", " + error.message) });
+
+      }}></Button>
+
+
     </View>
   );
 }
