@@ -13,7 +13,11 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/thecatshidog/react-native-awesome-web3.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm,swift}"
-
+  s.source_files = "ios/**/*.{h,m,mm}"
+  
+  # s.static_framework = true
   s.dependency "React-Core"
+#  s.dependency 'web3swift', '~> 2.3.0'
+#  s.prefix_header_contents = '#import "react-native-awesome-web3-Bridging-Header.h"'
+
 end
