@@ -1,6 +1,6 @@
 {
   "name": "react-native-awesome-web3",
-  "version": "0.2.2",
+  "version": "0.3.1",
   "description": "web3 with native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

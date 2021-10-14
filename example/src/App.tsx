@@ -7,8 +7,6 @@ import { utils } from 'ethers';
 import { StyleSheet, View, Text, Button, NativeModules } from 'react-native';
 import AwesomeWeb3 from 'react-native-awesome-web3';
 
-// import { Button } from 'react-native';
-
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
@@ -21,8 +19,8 @@ export default function App() {
         ''
       )
       .then((seed) => {
-        console.log(seed);
-        // console.log(utils.HDNode.fromSeed(seed));
+        // console.log(seed);
+        console.log(utils.HDNode.fromSeed(seed));
         console.log(
           utils.HDNode.fromMnemonic(
             'parrot park tornado ice cinnamon simple join federal crack ticket situate ill'
@@ -36,19 +34,22 @@ export default function App() {
     <View style={styles.container}>
       <Text>Result: {result}</Text>
 
-      <Button 
-      title="Button"
-      onPress={()=>{
-        console.log("AwesomeWeb3", NativeModules.AwesomeWeb3);
-
-        let AwesomeWeb3 = NativeModules.AwesomeWeb3;
-        AwesomeWeb3.generateSeed('parrot park tornado ice cinnamon simple join federal crack ticket situate ill', '')
-        .then((successResult) => { console.log("result-----"+successResult) })
-        .catch((error) => { console.log("error----"+error.code+", " + error.message) });
-
-      }}></Button>
-
-
+      <Button
+        title="Button"
+        onPress={() => {
+          let AwesomeWeb3 = NativeModules.AwesomeWeb3;
+          AwesomeWeb3.generateSeed(
+            'parrot park tornado ice cinnamon simple join federal crack ticket situate ill',
+            ''
+          )
+            .then((successResult: string) => {
+              console.log('result-----' + successResult);
+            })
+            .catch((error: any) => {
+              console.log('error----' + error.code + ', ' + error.message);
+            });
+        }}
+      />
     </View>
   );
 }

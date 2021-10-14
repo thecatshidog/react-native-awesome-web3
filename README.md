@@ -8,6 +8,15 @@ web3 with native
 npm install react-native-awesome-web3
 ```
 
+## iOS
+
+should in ios Podfile add
+
+```
+pod 'OpenSSL', :git => 'https://github.com/bither/OpenSSL.git', :branch => 'master'
+pod 'Bitheri', :git => 'https://github.com/bither/bitheri.git', :branch => 'develop'
+```
+
 ## Usage
 
 ```js
